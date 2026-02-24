@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-image: url(image.2jpg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40,20,5,0.6);
+    z-index: -1;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: rgba(60,30,10,0.6);
+    color: #f5e6d3;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 0 0 15px rgba(160,100,40,0.6);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #f5e6d3;
+    text-decoration: none;
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background: rgba(160,100,40,0.7);
+    box-shadow: 0 0 10px rgba(200,130,60,0.9);
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* HERO CARD */
+.hero-card {
+    background: rgba(255,230,200,0.08);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow:
+        0 0 15px rgba(200,120,50,0.6),
+        0 0 30px rgba(140,80,30,0.6);
+    border: 1px solid rgba(255,200,150,0.4);
+}
+
+/* IMAGE */
+.hero-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d2a679;
+    box-shadow: 0 0 15px rgba(200,130,70,0.9);
+}
+
+/* TEXT */
+.hero-text h1 {
+    margin: 0;
+    color: #f5e6d3;
+    text-shadow: 0 0 10px rgba(200,120,50,0.9);
+}
+
+.hero-text p {
+    margin: 5px 0;
+    color: #e0c3a0;
+}
+
+/* SECTIONS */
+section {
+    display: none;
+    margin-top: 30px;
+    background: rgba(60,30,10,0.7);
+    padding: 25px;
+    border-radius: 15px;
+    color: #f5e6d3;
+    box-shadow: 0 0 15px rgba(200,120,50,0.6);
+}
+
+section.active {
+    display: block;
+}
+
+/* PROJECTS */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.project-card {
+    background: rgba(120,70,30,0.6);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(180,110,50,0.6);
+}
+
+.project-card:hover {
+    background: rgba(200,130,60,0.8);
+    box-shadow: 0 0 20px rgba(255,180,90,1);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #f5e6d3;
+    text-shadow: 0 0 8px rgba(200,120,50,0.8);
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>RAPHY</h2>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('objective')">Objective</a>
+        <a onclick="showSection('skills')">Skills</a>
+        <a onclick="showSection('projects')">Projects</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </div>
+
+    <div class="main">
+
+        <div class="hero-card" id="home">
+            <img src="image.jpg.jpg" alt="My Photo">
+            <div class="hero-text">
+                <h1>Raphy Espliguera Anciano</h1>
+                <p>BS Information Technology - 3rd Year</p>
+            </div>
+        </div>
+
+        <section id="objective">
+            <h2>Career Objective</h2>
+            <p>“Turning coffee into code and ideas into innovation.”</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Basic JavaScript</li>
+                <li>Basic Python</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project-card" onclick="location.href='student.html'">Student Registration System</div>
+                <div class="project-card" onclick="location.href='grading.html'">Simple Grading System</div>
+                <div class="project-card" onclick="location.href='calculator.html'">Basic Calculator</div>
+                <div class="project-card" onclick="location.href='resume.html'">Resume</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:anciano@gmail.com" style="color:#ffcc99;">anciano@gmail.com</a></p>
+            <p>Phone: 09106000022</p>
+            <p>Facebook: <a href="https://www.facebook.com/" target="_blank" style="color:#ffcc99;">Raphy Anciano</a></p>
+        </section>
+
+        <footer>
+            <p>© 2026 Raphy | Portfolio</p>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+function showSection(id) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+
+    let target = document.getElementById(id);
+    if (target) {
+        target.classList.add("active");
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+}
+</script>
+
+</body>
+</html>
